@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Reconvexo — Onde as memórias ganham forma.</title>
+  <meta name="description" content="Reconvexo: onde as memórias ganham forma. Um espaço para transformar lembranças em algo que permanece.">
+  <style>
+    :root{
+      --azul:#779293;
+      --terracota:#b25730;
+      --areia:#efe6d8;
+      --grafite:#4c4b46;
+      --verde:#6c7a59;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--grafite);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(0,0,0,0.04), transparent 60%),
+        radial-gradient(1000px 500px at 110% 110%, rgba(0,0,0,0.035), transparent 60%),
+        var(--areia);
+    }
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 20px 32px;
+      display:flex;
+      min-height:100%;
+      flex-direction:column;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+    header img{
+      width:56px; height:auto; display:block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
+      border-radius:12px;
+    }
+    .brand{
+      font-weight:700;
+      letter-spacing: .04em;
+      color: var(--grafite);
+    }
+    main{flex:1; display:flex; align-items:center;}
+    .hero{
+      width:100%;
+      padding: 40px 0 32px;
+      display:grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr; padding:28px 0;}
+      header{justify-content:center;}
+      header .brand{text-align:center;}
+    }
+    h1{
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      font-weight:800;
+      line-height:1.05;
+      font-size: clamp(32px, 6vw, 56px);
+      margin:0 0 12px;
+      letter-spacing:.01em;
+      color: var(--grafite);
+    }
+    p.lead{
+      font-size: clamp(18px, 2.4vw, 22px);
+      line-height:1.6;
+      margin: 0 0 22px;
+      color: #3e3e3b;
+    }
+    .card{
+      background: #ffffffcc;
+      backdrop-filter: blur(2px);
+      border: 1px solid rgba(0,0,0,.06);
+      border-radius: 18px;
+      padding: 20px 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,.06);
+    }
+    .list{
+      margin:0; padding:0 0 0 18px;
+    }
+    .cta{
+      display:inline-block;
+      margin-top: 18px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: var(--terracota);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing:.02em;
+      transition: transform .08s ease, box-shadow .2s ease;
+      box-shadow: 0 6px 16px rgba(178,87,48,.28);
+    }
+    .cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(178,87,48,.34); }
+    .cta.alt{
+      background: var(--azul);
+      box-shadow: 0 6px 16px rgba(119,146,147,.28);
+    }
+    .chip{
+      display:inline-block;
+      background: #f7efe6;
+      color: var(--terracota);
+      border:1px solid #ecd8cb;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin: 4px 6px 0 0;
+    }
+    footer{
+      border-top:1px dashed rgba(0,0,0,.12);
+      padding-top:16px;
+      font-size:14px;
+      color:#5a5a56;
+      display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
+    }
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img src="./LOGO_TYPE.png" alt="Reconvexo">
+      <div class="brand">
+        <div class="mono" style="font-size:12px; letter-spacing:.14em; color:#6c7a59; text-transform:uppercase;">Reconvexo</div>
+        <div style="font-size:15px; color:#4c4b46;">Onde as memórias ganham forma.</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1>A memória tem forma.<br>Nós ajudamos a revelá-la.</h1>
+          <p class="lead">
+            Um espaço para transformar lembranças em algo que permanece — com beleza simples,
+            linguagem humana e respeito à sua voz. Em breve, experiências e livros feitos sob medida.
+          </p>
+          <a class="cta" href="mailto:contato@reconvexo.app.br">Fale com a gente</a>
+          <a class="cta alt" style="margin-left:8px" href="#notificar">Quero ser avisado</a>
+          <div style="margin-top:14px">
+            <span class="chip">#memória</span>
+            <span class="chip">#livros</span>
+            <span class="chip">#humanidade</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3 style="margin:4px 0 10px; color:var(--grafite); font-size:18px">O que vem aí</h3>
+          <ul class="list">
+            <li>Escrita guiada por IA, leve e empática.</li>
+            <li>Organização automática em capítulos e dedicatórias.</li>
+            <li>Design editorial com textura de papel e tipografia calorosa.</li>
+            <li>Impressão sob demanda (1–100 cópias) no Brasil.</li>
+          </ul>
+          <p style="margin:14px 0 0; font-size:14px; color:#5a5a56">Este é um preview do projeto. Site oficial em preparação.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="y"></span> Reconvexo</div>
+      <div style="opacity:.8">Paleta: azul-sereno · terracota · areia · grafite · verde-argila</div>
+    </footer>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
