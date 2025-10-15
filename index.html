@@ -3,8 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Reconvexo — Onde as memórias ganham forma.</title>
-  <meta name="description" content="Reconvexo: onde as memórias ganham forma. Um espaço para transformar lembranças em algo que permanece.">
+  <title>Reconvexo · Onde as memórias ganham forma</title>
+  <meta name="description" content="Reconvexo é um espaço para transformar lembranças em algo que permanece, com beleza simples e voz humana.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root{
       --azul:#779293;
@@ -17,155 +20,89 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--grafite);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, rgba(0,0,0,0.04), transparent 60%),
-        radial-gradient(1000px 500px at 110% 110%, rgba(0,0,0,0.035), transparent 60%),
-        var(--areia);
+      font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+      background: var(--areia) url('./assets/site_background.jpg') center/cover fixed no-repeat;
     }
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 48px 20px 32px;
-      display:flex;
-      min-height:100%;
-      flex-direction:column;
+    .wrap{max-width:1180px; margin:0 auto; padding:28px 20px 24px; position:relative}
+    /* stains */
+    .stain{position:absolute; pointer-events:none; z-index:0; filter: saturate(1.02) contrast(1.02) brightness(.98)}
+    .stain.azul{top:-40px; left:-80px; width:min(44vw, 640px); opacity:.22; transform: rotate(-6deg);}
+    .stain.terracota{right:-60px; bottom:-80px; width:min(36vw, 520px); opacity:.38; transform: rotate(8deg);}
+    header{position:relative; z-index:1; display:flex; align-items:flex-end; gap:16px}
+    .brand img{width:min(360px, 62vw); height:auto; filter: drop-shadow(0 4px 14px rgba(0,0,0,.10))}
+    .hero{position:relative; z-index:1; margin-top:18px; display:grid; grid-template-columns: 1.1fr 1fr; gap:34px; align-items:center}
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+      .stain.azul{width:70vw} .stain.terracota{width:60vw}
+      .brand img{width:70vw}
     }
-    header{
-      display:flex;
-      align-items:center;
-      gap:16px;
-    }
-    header img{
-      width:56px; height:auto; display:block;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,.08));
-      border-radius:12px;
-    }
-    .brand{
-      font-weight:700;
-      letter-spacing: .04em;
-      color: var(--grafite);
-    }
-    main{flex:1; display:flex; align-items:center;}
-    .hero{
-      width:100%;
-      padding: 40px 0 32px;
-      display:grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 32px;
-    }
-    @media (max-width: 860px){
-      .hero{grid-template-columns:1fr; padding:28px 0;}
-      header{justify-content:center;}
-      header .brand{text-align:center;}
-    }
-    h1{
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
-      font-weight:800;
-      line-height:1.05;
-      font-size: clamp(32px, 6vw, 56px);
-      margin:0 0 12px;
-      letter-spacing:.01em;
-      color: var(--grafite);
-    }
-    p.lead{
-      font-size: clamp(18px, 2.4vw, 22px);
-      line-height:1.6;
-      margin: 0 0 22px;
-      color: #3e3e3b;
-    }
-    .card{
-      background: #ffffffcc;
+    .hero h2{font: 800 clamp(34px, 6.8vw, 64px) "Playfair Display", Georgia, serif; line-height:1.04; margin:0 0 14px}
+    .lead{font-size: clamp(18px, 2.4vw, 21px); line-height:1.6; margin:0 0 18px}
+    .ctas{display:flex; gap:10px; flex-wrap:wrap}
+    .cta{display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:700; letter-spacing:.02em; color:#fff; background:var(--terracota); box-shadow:0 10px 24px rgba(178,87,48,.28); transition:transform .08s ease, box-shadow .2s ease}
+    .cta.alt{background:var(--azul); box-shadow:0 10px 24px rgba(119,146,147,.28)}
+    .cta:hover{transform:translateY(-2px)}
+    /* floating panel -> replaced by text on background with gentle gradient for legibility */
+    .what{
+      position:relative;
+      margin-top:18px;
+      padding:18px 18px 14px;
+      border-radius:14px;
+      /* very soft gradient only under the text */
+      background: linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.34));
+      border:1px solid rgba(0,0,0,.06);
+      box-shadow: 0 10px 24px rgba(0,0,0,.08);
       backdrop-filter: blur(2px);
-      border: 1px solid rgba(0,0,0,.06);
-      border-radius: 18px;
-      padding: 20px 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.06);
     }
-    .list{
-      margin:0; padding:0 0 0 18px;
-    }
-    .cta{
-      display:inline-block;
-      margin-top: 18px;
-      padding: 12px 18px;
-      border-radius: 999px;
-      background: var(--terracota);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing:.02em;
-      transition: transform .08s ease, box-shadow .2s ease;
-      box-shadow: 0 6px 16px rgba(178,87,48,.28);
-    }
-    .cta:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(178,87,48,.34); }
-    .cta.alt{
-      background: var(--azul);
-      box-shadow: 0 6px 16px rgba(119,146,147,.28);
-    }
-    .chip{
-      display:inline-block;
-      background: #f7efe6;
-      color: var(--terracota);
-      border:1px solid #ecd8cb;
-      font-size: 13px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      margin: 4px 6px 0 0;
-    }
-    footer{
-      border-top:1px dashed rgba(0,0,0,.12);
-      padding-top:16px;
-      font-size:14px;
-      color:#5a5a56;
-      display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;
-    }
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    .what h3{margin:0 0 8px; font: 700 18px "Work Sans", system-ui}
+    .what ul{margin:10px 0 0 18px}
+    .what small{display:block; margin-top:10px; opacity:.8}
+    footer{position:relative; z-index:1; margin-top:36px; padding-top:16px; border-top:1px dashed rgba(0,0,0,.12); color:#5a5a56; font-size:14px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
   </style>
 </head>
 <body>
   <div class="wrap">
+    <!-- stains -->
+    <img class="stain azul" src="./assets/mancha_azul.png" alt="">
+    <img class="stain terracota" src="./assets/mancha_terracota.png" alt="">
     <header>
-      <img src="./LOGO_TYPE.png" alt="Reconvexo">
       <div class="brand">
-        <div class="mono" style="font-size:12px; letter-spacing:.14em; color:#6c7a59; text-transform:uppercase;">Reconvexo</div>
-        <div style="font-size:15px; color:#4c4b46;">Onde as memórias ganham forma.</div>
+        <img src="./assets/logo_horizontal.png" alt="Reconvexo">
       </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <h1>A memória tem forma.<br>Nós ajudamos a revelá-la.</h1>
-          <p class="lead">
-            Um espaço para transformar lembranças em algo que permanece — com beleza simples,
-            linguagem humana e respeito à sua voz. Em breve, experiências e livros feitos sob medida.
-          </p>
+    <section class="hero">
+      <div>
+        <h2>A memória tem forma. Aqui ela encontra casa.</h2>
+        <p class="lead">
+          Um espaço para transformar lembranças em algo que permanece, com beleza simples,
+          linguagem humana e respeito à sua história. Em breve, experiências e livros feitos sob medida.
+        </p>
+        <div class="ctas">
           <a class="cta" href="mailto:contato@reconvexo.app.br">Fale com a gente</a>
-          <a class="cta alt" style="margin-left:8px" href="#notificar">Quero ser avisado</a>
-          <div style="margin-top:14px">
-            <span class="chip">#memória</span>
-            <span class="chip">#livros</span>
-            <span class="chip">#humanidade</span>
-          </div>
+          <a class="cta alt" href="#notificar">Quero ser avisado</a>
         </div>
-        <div class="card">
-          <h3 style="margin:4px 0 10px; color:var(--grafite); font-size:18px">O que vem aí</h3>
-          <ul class="list">
-            <li>Escrita guiada por IA, leve e empática.</li>
+        <!-- Floating text block (no white card, just soft gradient behind text) -->
+        <div class="what">
+          <h3>O que vem aí</h3>
+          <ul>
+            <li>Escrita guiada por IA leve e empática.</li>
             <li>Organização automática em capítulos e dedicatórias.</li>
             <li>Design editorial com textura de papel e tipografia calorosa.</li>
-            <li>Impressão sob demanda (1–100 cópias) no Brasil.</li>
+            <li>Impressão sob demanda a partir de 1 cópia no Brasil.</li>
           </ul>
-          <p style="margin:14px 0 0; font-size:14px; color:#5a5a56">Este é um preview do projeto. Site oficial em preparação.</p>
+          <small>Preview do projeto. Site oficial em preparação.</small>
         </div>
-      </section>
-    </main>
+      </div>
+      <div class="panel" style="align-self:stretch; background:#ffffff00; border:none; box-shadow:none">
+        <img src="./assets/composicao.jpg" alt="Composição Reconvexo" style="display:block; width:100%; height:100%; object-fit:cover; border-radius:18px; box-shadow:0 20px 48px rgba(0,0,0,.18)">
+      </div>
+    </section>
 
     <footer>
       <div>© <span id="y"></span> Reconvexo</div>
-      <div style="opacity:.8">Paleta: azul-sereno · terracota · areia · grafite · verde-argila</div>
+      <div>Reconvexo é sobre o que fica, não só no papel, mas em nós.</div>
     </footer>
   </div>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
