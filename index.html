@@ -1,4 +1,4 @@
-o<!doctype html>
+<!doctype html>
 <html lang="pt-br">
 <head>
   <meta charset="utf-8">
@@ -43,13 +43,12 @@ o<!doctype html>
     .cta{display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none; font-weight:700; letter-spacing:.02em; color:#fff; background:var(--terracota); box-shadow:0 10px 24px rgba(178,87,48,.28); transition:transform .08s ease, box-shadow .2s ease}
     .cta.alt{background:var(--azul); box-shadow:0 10px 24px rgba(119,146,147,.28)}
     .cta:hover{transform:translateY(-2px)}
-    /* floating panel -> replaced by text on background with gentle gradient for legibility */
+    /* floating panel */
     .what{
       position:relative;
       margin-top:18px;
       padding:18px 18px 14px;
       border-radius:14px;
-      /* very soft gradient only under the text */
       background: linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.34));
       border:1px solid rgba(0,0,0,.06);
       box-shadow: 0 10px 24px rgba(0,0,0,.08);
@@ -80,10 +79,13 @@ o<!doctype html>
           linguagem humana e respeito à sua história. Em breve, experiências e livros feitos sob medida.
         </p>
         <div class="ctas">
-          <a class="cta" href="mailto:reconvexo.app@gmail.com">Fale com a gente</a>
+          <a class="cta" id="cta-contato" href="mailto:reconvexo.app@gmail.com">Fale com a gente</a>
           <a class="cta alt" href="https://forms.gle/Z4EJpGnCfSYmTiJa9" target="_blank">Quero ser avisado</a>
         </div>
-        <!-- Floating text block (no white card, just soft gradient behind text) -->
+        <p style="margin-top:8px;font-size:14px">
+          Ou envie para <a href="mailto:reconvexo.app@gmail.com">reconvexo.app@gmail.com</a>
+        </p>
+
         <div class="what">
           <h3>O que vem aí</h3>
           <ul>
@@ -105,6 +107,19 @@ o<!doctype html>
       <div>Reconvexo é sobre o que fica, não só no papel, mas em nós.</div>
     </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // opção B: tenta abrir mailto, se falhar abre o Gmail
+    (function () {
+      const btn = document.getElementById('cta-contato');
+      const gmail = "https://mail.google.com/mail/?view=cm&fs=1&to=reconvexo.app@gmail.com&su=Contato%20Reconvexo&body=Oi,%20quero%20conversar%20sobre...";
+      btn.addEventListener('click', function (e) {
+        setTimeout(() => { window.open(gmail, '_blank'); }, 800);
+      });
+    })();
+  </script>
 </body>
 </html>
+
